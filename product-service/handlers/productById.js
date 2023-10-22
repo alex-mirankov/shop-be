@@ -1,17 +1,16 @@
 'use strict';
 
-const {MOCK_PRODUCT_LIST} = require("./mock");
+const {Database} = require("../database/database");
+const {HEADERS} = require("../models/headers");
 
 module.exports.productById = async (event) => {
+    console.log('LAMBDA: productById (id)', event.pathParameters.id);
     const { id } = event.pathParameters;
-    const product = MOCK_PRODUCT_LIST.find((el) => el.id === id);
-
-  return {
-      headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-      },
-    statusCode: 200,
-    body: JSON.stringify(product),
-  };
+    const dbService = new Database();
+    const product = await dbService.get(process.env.PRODUCTS_TABLE, id);
+    return {
+        headers: HEADERS,
+        statusCode: 200,
+        body: JSON.stringify(product.Item),
+    }
 };

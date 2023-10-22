@@ -1,0 +1,26 @@
+{
+  "name": "shop-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverless.yml",
+  "scripts": {
+    "deploy": "sls deploy",
+    "mockDB:products": "aws dynamodb batch-write-item --request-items file://db-mocks/products.mock.json",
+    "mockDB:stocks": "aws dynamodb batch-write-item --request-items file://db-mocks/stocks.mock.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stricozetc/shop-be.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stricozetc/shop-be/issues"
+  },
+  "homepage": "https://github.com/stricozetc/shop-be#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1478.0",
+    "uuid": "^9.0.1"
+  }
+}

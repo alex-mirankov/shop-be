@@ -1,0 +1,94 @@
+{
+    "products": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "1234-5678-4563-1245"
+                    },
+                    "description": {
+                        "S": "some description for Argentina national team jersey"
+                    },
+                    "price": {
+                        "N": "100"
+                    },
+                    "title": {
+                        "S": "Argentina national team jersey"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "3456-1253-9856-0987"
+                    },
+                    "description": {
+                        "S": "some description for France national team jersey"
+                    },
+                    "price": {
+                        "N": "90"
+                    },
+                    "title": {
+                        "S": "France national team jersey"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "7461-9670-2412-1264"
+                    },
+                    "description": {
+                        "S": "some description for Germany national team jersey"
+                    },
+                    "price": {
+                        "N": "80"
+                    },
+                    "title": {
+                        "S": "Germany national team jersey"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "0190-2310-6429-2233"
+                    },
+                    "description": {
+                        "S": "some description for Italy national team jersey"
+                    },
+                    "price": {
+                        "N": "85"
+                    },
+                    "title": {
+                        "S": "Italy national team jersey"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "7632-2579-2612-0793"
+                    },
+                    "description": {
+                        "S": "some description for Mexico national team jersey"
+                    },
+                    "price": {
+                        "N": "90"
+                    },
+                    "title": {
+                        "S": "Mexico national team jersey"
+                    }
+                }
+            }
+        }
+    ]
+}
