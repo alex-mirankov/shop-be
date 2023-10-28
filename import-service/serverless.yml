@@ -1,0 +1,41 @@
+service: import-service
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:PutBucketCORS
+      Resource:
+        - arn:aws:s3:::my-import-service-bucket/*
+        - arn:aws:s3:::my-import-service-bucket/uploaded/*
+
+functions:
+  importProductsFile:
+    handler: handlers/importProductsFile.importProductsFile
+    events:
+      - httpApi:
+          path: /import
+          method: get
+          request:
+            parameters:
+              querystrings:
+                name: true
+          cors: true
+  importFileParser:
+    handler: handlers/importFileParser.importFileParser
+    events:
+      - s3:
+          bucket: my-import-service-bucket
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploaded/
+            - suffix: .csv
+          existing: true
+          cors: true
