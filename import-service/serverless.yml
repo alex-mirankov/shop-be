@@ -15,6 +15,11 @@ provider:
       Resource:
         - arn:aws:s3:::my-import-service-bucket/*
         - arn:aws:s3:::my-import-service-bucket/uploaded/*
+    - Effect: Allow
+      Action:
+        - sqs:*
+      Resource:
+        - arn:aws:sqs:us-east-1:243868715591:catalogItemsQueue
 
 functions:
   importProductsFile:
