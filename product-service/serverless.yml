@@ -60,6 +60,7 @@ functions:
   catalogBatchProcess:
     handler: handlers/catalogBatchProcess.catalogBatchProcess
     environment:
+      PRODUCTS_TABLE: products
       SQS_QUEUE_URL:
         Ref: SQSQueue
       SNS_ARN:
