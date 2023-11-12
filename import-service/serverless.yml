@@ -6,6 +6,14 @@ provider:
   runtime: nodejs18.x
   stage: dev
   region: us-east-1
+  httpApi:
+    authorizers:
+      basicAuthorizer:
+        type: request
+        functionArn: arn:aws:lambda:us-east-1:243868715591:function:authorization-service-dev-basicAuthorizer
+        resultTtlInSeconds: 0
+        identitySource:
+          - $request.header.Authorization
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -33,6 +41,9 @@ functions:
               querystrings:
                 name: true
           cors: true
+          authorizer:
+            name: basicAuthorizer
+
   importFileParser:
     handler: handlers/importFileParser.importFileParser
     events:
